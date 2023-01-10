@@ -26,11 +26,15 @@ async function getData(URL) {
 }
 getData(URL); */
 
-const URL = "https://anime-facts-rest-api.herokuapp.com/api/v1";
+const page = document.getElementById("hi");
+
+const URL = "";
 
 async function getData(URL) {
-  const response = await fetch(URL);
-  console.log(response);
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {}
 }
-
 getData(URL);

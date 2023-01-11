@@ -28,25 +28,12 @@ getData(URL); */
 
 const page = document.getElementById("hi");
 
-const URL =
-  "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY";
+const URL = "https://pokeapi.co/api/v2/pokemon/magikarp";
 
 async function getData(URL) {
   const response = await fetch(URL);
   const data = await response.json();
-  const dataphoto = data.photos;
   console.log(data);
-  console.log(dataphoto);
-  dataphoto.forEach((data) =>
-    page.insertAdjacentHTML(
-      "beforeend",
-      `
-    <div>
-    <img src="${data.img_src}"><img>
-    </div>
-    `
-    )
-  );
 }
 
 getData(URL);

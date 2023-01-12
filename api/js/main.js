@@ -24,18 +24,25 @@ async function getData(URL) {
   const response = await fetch(URL);
   console.log(response);
 }
+
+
 getData(URL); */
 
+/*
 const page = document.getElementById("page");
 const input = document.getElementById("input");
 const btn = document.getElementById("btn");
 /////////////////////////////////////////////////////
 
 btn.addEventListener("click", function () {
+  ShowPokemon();
+});
+
+function ShowPokemon() {
   let userinput = input.value;
   const url = `https://pokeapi.co/api/v2/pokemon/${userinput}`;
   showresult(url);
-});
+}
 
 async function showresult(url) {
   try {
@@ -49,24 +56,43 @@ async function showresult(url) {
         `
       
       <div>
-      <img src="dataimage.back_default">
+      <img src="${dataimage.front_shiny}">
       </div>
       
       `
       );
-    } else {
-      console.log("Error");
-    }
+    } 
   } catch (error) {}
-}
+}*/
+import { DOM } from "../js/dom";
 
-/*
-const URL = `https://pokeapi.co/api/v2/pokemon/charmander`;
+DOM.BTN.addEventListener("click", function () {
+  console.log("hi");
+  let input = DOM.userInput.value;
+  const API = `https://pokeapi.co/api/v2/pokemon/${input}`;
+  allfunction.Pokemon(API);
+});
 
-async function getData(URL) {
-  const response = await fetch(URL);
-  const data = await response.json();
-  console.log(data);
-}
+const allfunction = {
+  Pokemon: async function (API) {
+    try {
+      const Response = await fetch(API);
+      const Data = await Response.json();
+      const DataImage = Data.sprites;
 
-getData(URL);*/
+      if (Response.status > 199 || Response.status < 300) {
+        console.log(Data);
+        page.insertAdjacentHTML(
+          "beforeend",
+          `
+    
+    <div>
+    <img src="${DataImage.front_shiny}">
+    </div>
+    
+    `
+        );
+      }
+    } catch (error) {}
+  },
+};

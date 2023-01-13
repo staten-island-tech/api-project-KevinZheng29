@@ -67,7 +67,6 @@ async function showresult(url) {
 import { DOM } from "../js/dom";
 
 DOM.BTN.addEventListener("click", function () {
-  console.log("hi");
   let input = DOM.userInput.value;
   const API = `https://pokeapi.co/api/v2/pokemon/${input}`;
   allfunction.Pokemon(API);
@@ -79,7 +78,6 @@ const allfunction = {
       const Response = await fetch(API);
       const Data = await Response.json();
       const DataImage = Data.sprites;
-
       if (Response.status > 199 || Response.status < 300) {
         console.log(Data);
         page.insertAdjacentHTML(
@@ -87,7 +85,7 @@ const allfunction = {
           `
     
     <div>
-    <img src="${DataImage.front_shiny}">
+    <img class="image" src="${DataImage.front_default}"><img>
     </div>
     
     `
@@ -96,3 +94,17 @@ const allfunction = {
     } catch (error) {}
   },
 };
+
+const getArray = [];
+const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/").then(
+  (response) => response.json()
+);
+getArray.push(getAPI);
+
+DOM.btn2.addEventListener("click", async function () {
+  const getArray = [];
+  const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/").then(
+    (response) => response.json()
+  );
+  getArray.push(getAPI);
+});

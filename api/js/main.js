@@ -70,6 +70,7 @@ DOM.BTN.addEventListener("click", function () {
   let input = DOM.userInput.value;
   const API = `https://pokeapi.co/api/v2/pokemon/${input}`;
   allfunction.Pokemon(API);
+  DOM.userInput.value = "";
 });
 
 const allfunction = {
@@ -78,25 +79,26 @@ const allfunction = {
       const Response = await fetch(API);
       const Data = await Response.json();
       const DataImage = Data.sprites;
+      const Type = Data.types;
       console.log(Data);
       if (Response.status > 199 || Response.status < 300) {
         page.insertAdjacentHTML(
           "beforeend",
           `
     
-    <div>
+    <div class="child">
     <img class="image" src="${DataImage.front_default}"><img>
+    <h1 class="name">${Data.name}</h1>
     </div>
     
     `
         );
       }
-      return Data;
     } catch (error) {}
   },
 };
 
-const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/");
+const getAPI = await fetch(`https://pokeapi.co/api/v2/pokemon/`);
 const JSData = await getAPI.json();
 console.log(JSData);
 console.log(JSData.results.name);

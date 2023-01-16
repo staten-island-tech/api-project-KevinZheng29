@@ -96,9 +96,11 @@ const allfunction = {
   },
 };
 
-const getArray = [];
 const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/");
 const JSData = await getAPI.json();
-getArray.push(JSData);
+console.log(JSData);
+console.log(JSData.results.name);
+/////////////
+const getArray = [JSData];
 console.log(getArray);
-getArray.forEach((data) => console.log(data.results));
+console.log(getArray.results);

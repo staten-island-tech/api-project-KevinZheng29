@@ -1,5 +1,3 @@
-import "../styles/main.css";
-
 /*function greet(name) {
   const greetPromise = new Promise(function (resolve, reject) {
     resolve(`Hello ${name}`);
@@ -64,6 +62,8 @@ async function showresult(url) {
     } 
   } catch (error) {}
 }*/
+
+import "../styles/main.css";
 import { DOM } from "../js/dom";
 
 DOM.BTN.addEventListener("click", function () {
@@ -78,8 +78,8 @@ const allfunction = {
       const Response = await fetch(API);
       const Data = await Response.json();
       const DataImage = Data.sprites;
+      console.log(Data);
       if (Response.status > 199 || Response.status < 300) {
-        console.log(Data);
         page.insertAdjacentHTML(
           "beforeend",
           `
@@ -91,20 +91,14 @@ const allfunction = {
     `
         );
       }
+      return Data;
     } catch (error) {}
   },
 };
 
 const getArray = [];
-const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/").then(
-  (response) => response.json()
-);
-getArray.push(getAPI);
-
-DOM.btn2.addEventListener("click", async function () {
-  const getArray = [];
-  const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/").then(
-    (response) => response.json()
-  );
-  getArray.push(getAPI);
-});
+const getAPI = await fetch("https://pokeapi.co/api/v2/pokemon/");
+const JSData = await getAPI.json();
+getArray.push(JSData);
+console.log(getArray);
+getArray.forEach((data) => console.log(data.results));

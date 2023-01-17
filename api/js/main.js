@@ -104,6 +104,7 @@ DOM.customBTN.addEventListener("click", function () {
   let input = DOM.userInput.value;
   const URL = `https://api.jikan.moe/v4/anime?q=${input}&sfw`;
   functionlist.Custom(URL);
+  DOM.userInput.value = "";
 });
 
 const functionlist = {

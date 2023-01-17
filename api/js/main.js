@@ -67,7 +67,12 @@ const testlink =
 async function test(URL) {
   const Response = await fetch(URL);
   const Data = await Response.json();
+  const Data2 = Data.data;
+  console.log(Data2);
   console.log(Data);
+  const array = [];
+  array.push(Data2);
+  console.log(array.airing);
 }
 test(testlink);
 

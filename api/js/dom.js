@@ -1,8 +1,11 @@
 const DOM = {
   DisplayPage: document.getElementById("page"),
-  BTN: document.getElementById("btn"),
+  S4BTN: document.getElementById("S4BTN"),
   userInput: document.getElementById("input"),
-  btn2: document.getElementById("filter"),
+  customBTN: document.getElementById("CustomBTN"),
+  S2BTN: document.getElementById("S2BTN"),
+  S3BTN: document.getElementById("S3BTN"),
+  S1BTN: document.getElementById("S1BTN"),
 };
 
 export { DOM };

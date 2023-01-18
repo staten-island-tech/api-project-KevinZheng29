@@ -66,13 +66,8 @@ const testlink =
   "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
 async function test(URL) {
   const Response = await fetch(URL);
-  const Data = await Response.json();
-  const Data2 = Data.data;
-  console.log(Data2);
-  console.log(Data);
-  const array = [];
-  array.push(Data2);
-  console.log(array.airing);
+  const data = await Response.json();
+  console.log(data);
 }
 test(testlink);
 

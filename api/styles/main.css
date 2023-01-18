@@ -10,8 +10,14 @@ html, body, *{
     text-align: center;
 }
 
+.topmenu{
+    background-image: url(https://th.bing.com/th/id/R.eba4cb6ee642c84e7d27b4c9ca0f2326?rik=%2bBA%2f2dJl3EXbUg&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f05%2fCool-Anime-Picture.jpg&ehk=d4ap0D2V7zZlqwM2UX2AXmeWvjhx8rHHVZ0LWNX2TMA%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;
+}
+
 .btnsection, .custombtnsection{
     font-size: 3rem;
+    text-align: center;
 }
 
 .custombtnsection{
@@ -28,7 +34,7 @@ html, body, *{
 .child{
     border: 3px solid black;
     text-align: center;
-    width: 10.8rem;
+    width: 180rem;
     height: 90rem;
 }
 

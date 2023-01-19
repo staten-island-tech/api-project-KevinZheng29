@@ -115,55 +115,70 @@ const functionlist = {
     const Link = Data2[9].trailer.embed_url;
     const Synopsis = Data.data[9].synopsis;
     const Title = Data.data[9].title;
-    DOM.DisplayPage.insertAdjacentHTML(
-      "beforeend",
-      `
-    <div style:"width: 1280px;
-    height: 2px;" class="child">
-    <h1 class="title">${Title}</h1>
-    <embed class="video" src="${Link}"><embed>
-    <h1 class="synopsis">${Synopsis}</h1>
-    </div>
-    `
-    );
+    try {
+      if (Response.status > 199 || Response.status < 300) {
+        DOM.DisplayPage.insertAdjacentHTML(
+          "beforeend",
+          `
+        <div class="child">
+        <h1 class="title">${Title}</h1>
+        <embed  class="video" src="${Link}"><embed>
+        <h1 class="synopsis">${Synopsis}</h1>
+        </div>
+        `
+        );
+      } else {
+        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+      }
+    } catch (error) {}
   },
   S2: async function (URL) {
     const Response = await fetch(URL);
     const Data = await Response.json();
     const Data2 = Data.data;
-    const Link = Data2[4].trailer.embed_url;
-    const Synopsis = Data.data[4].synopsis;
-    const Title = Data.data[4].title;
-    DOM.DisplayPage.insertAdjacentHTML(
-      "beforeend",
-      `
-    <div style:"width: 1280px;
-    height: 2px;" class="child">
-    <h1 class="title">${Title}</h1>
-    <embed class="video" src="${Link}"><embed>
-    <h1 class="synopsis">${Synopsis}</h1>
-    </div>
-    `
-    );
+    const Link = Data2[8].trailer.embed_url;
+    const Synopsis = Data.data[8].synopsis;
+    const Title = Data.data[8].title;
+    try {
+      if (Response.status > 199 || Response.status < 300) {
+        DOM.DisplayPage.insertAdjacentHTML(
+          "beforeend",
+          `
+        <div class="child">
+        <h1 class="title">${Title}</h1>
+        <embed  class="video" src="${Link}"><embed>
+        <h1 class="synopsis">${Synopsis}</h1>
+        </div>
+        `
+        );
+      } else {
+        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+      }
+    } catch (error) {}
   },
   S3: async function (URL) {
     const Response = await fetch(URL);
     const Data = await Response.json();
     const Data2 = Data.data;
-    const Link = Data2[5].trailer.embed_url;
-    const Synopsis = Data.data[5].synopsis;
-    const Title = Data.data[5].title;
-    DOM.DisplayPage.insertAdjacentHTML(
-      "beforeend",
-      `
-    <div style:"width: 1280px;
-    height: 2px;" class="child">
-    <h1 class="title">${Title}</h1>
-    <embed class="video" src="${Link}"><embed>
-    <h1 class="synopsis">${Synopsis}</h1>
-    </div>
-    `
-    );
+    const Link = Data2[7].trailer.embed_url;
+    const Synopsis = Data.data[7].synopsis;
+    const Title = Data.data[7].title;
+    try {
+      if (Response.status > 199 || Response.status < 300) {
+        DOM.DisplayPage.insertAdjacentHTML(
+          "beforeend",
+          `
+        <div class="child">
+        <h1 class="title">${Title}</h1>
+        <embed  class="video" src="${Link}"><embed>
+        <h1 class="synopsis">${Synopsis}</h1>
+        </div>
+        `
+        );
+      } else {
+        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+      }
+    } catch (error) {}
   },
   S4: async function (URL) {
     const Response = await fetch(URL);
@@ -172,17 +187,22 @@ const functionlist = {
     const Link = Data2[0].trailer.embed_url;
     const Synopsis = Data.data[0].synopsis;
     const Title = Data.data[0].title;
-    DOM.DisplayPage.insertAdjacentHTML(
-      "beforeend",
-      `
-    <div style:"width: 1280px;
-    height: 2px;" class="child">
-    <h1 class="title">${Title}</h1>
-    <embed  class="video" src="${Link}"><embed>
-    <h1 class="synopsis">${Synopsis}</h1>
-    </div>
-    `
-    );
+    try {
+      if (Response.status > 199 || Response.status < 300) {
+        DOM.DisplayPage.insertAdjacentHTML(
+          "beforeend",
+          `
+        <div class="child">
+        <h1 class="title">${Title}</h1>
+        <embed  class="video" src="${Link}"><embed>
+        <h1 class="synopsis">${Synopsis}</h1>
+        </div>
+        `
+        );
+      } else {
+        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+      }
+    } catch (error) {}
   },
   Custom: async function (URL) {
     const Response = await fetch(URL);
@@ -191,17 +211,22 @@ const functionlist = {
     const Link = Data2[0].trailer.embed_url;
     const Synopsis = Data.data[0].synopsis;
     const Title = Data.data[0].title;
-    DOM.DisplayPage.insertAdjacentHTML(
-      "beforeend",
-      `
-    <div style:"width: 1280px;
-    height: 2px;" class="child">
-    <h1 class="title">${Title}</h1>
-    <embed  class="video" src="${Link}"><embed>
-    <h1 class="synopsis">${Synopsis}</h1>
-    </div>
-    `
-    );
+    try {
+      if (Response.status > 199 || Response.status < 300) {
+        DOM.DisplayPage.insertAdjacentHTML(
+          "beforeend",
+          `
+        <div class="child">
+        <h1 class="title">${Title}</h1>
+        <embed  class="video" src="${Link}"><embed>
+        <h1 class="synopsis">${Synopsis}</h1>
+        </div>
+        `
+        );
+      } else {
+        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+      }
+    } catch (error) {}
   },
 };
 

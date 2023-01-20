@@ -62,8 +62,7 @@ const allfunction = {
 import "../styles/main.css";
 import { DOM } from "../js/dom";
 
-const testlink =
-  "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
+const testlink = "https://api.jikan.moe/v4/anime?q=Bocchi The Rock&sfw";
 async function test(URL) {
   const Response = await fetch(URL);
   const data = await Response.json();
@@ -108,7 +107,7 @@ DOM.customBTN.addEventListener("click", function () {
 });
 
 const functionlist = {
-  S1: async function (URL) {
+  /*  S1: async function (URL) {
     const Response = await fetch(URL);
     const Data = await Response.json();
     const Data2 = Data.data;
@@ -203,12 +202,12 @@ const functionlist = {
         DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
       }
     } catch (error) {}
-  },
+  },*/
   Custom: async function (URL) {
     const Response = await fetch(URL);
     const Data = await Response.json();
     const Data2 = Data.data;
-    const Link = Data2[0].trailer.embed_url;
+    const Link = Data2[0].images.jpg.large_image_url;
     const Synopsis = Data.data[0].synopsis;
     const Title = Data.data[0].title;
     try {
@@ -218,8 +217,9 @@ const functionlist = {
           `
         <div class="child">
         <h1 class="title">${Title}</h1>
-        <embed  class="video" src="${Link}"><embed>
+        <img class="img" src="${Link}"><img>
         <h1 class="synopsis">${Synopsis}</h1>
+        <h1 class="rating">Rating: ${Data2[0].score}</h1>
         </div>
         `
         );

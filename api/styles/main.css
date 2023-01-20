@@ -29,20 +29,24 @@ html, body, *{
 
 .child{
     text-align: center;
-    width: 180rem;
-    height: 90rem;
+    width: 65rem;
+    height: 70rem;
     margin-bottom: 10rem;
 }
 
 .title{
     font-size: 4rem;
 }
-.video{
+.img{
     width: 100%;
-    height: 90rem;
+    height: 60rem;
 }
 .synopsis{
     font-size: 20px;
+}
+
+.rating{
+    font-size: 40px;
 }
 
 

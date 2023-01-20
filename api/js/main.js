@@ -71,7 +71,7 @@ async function test(URL) {
 }
 test(testlink);
 
-DOM.S1BTN.addEventListener("click", function () {
+/*DOM.S1BTN.addEventListener("click", function () {
   DOM.DisplayPage.innerHTML = "";
   const URL =
     "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
@@ -97,7 +97,7 @@ DOM.S4BTN.addEventListener("click", function () {
   const URL =
     "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
   functionlist.S4(URL);
-});
+});*/
 
 DOM.customBTN.addEventListener("click", function () {
   DOM.DisplayPage.innerHTML = "";

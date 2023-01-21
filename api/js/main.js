@@ -226,7 +226,9 @@ const functionlist = {
       } else {
         DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
       }
-    } catch (error) {}
+    } catch (error) {
+      DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+    }
   },
 };
 

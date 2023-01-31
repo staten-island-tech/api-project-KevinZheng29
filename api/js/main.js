@@ -73,31 +73,25 @@ DOM.customBTN.addEventListener("click", function () {
 const functionlist = {
   Custom: async function (URL) {
     const Response = await fetch(URL);
-    const Data = await Response.json();
-    const Data2 = Data.data;
-    const Link = Data2[0].images.jpg.large_image_url;
-    const Genre = Data.data[0].genres[0].name;
-    const Title = Data.data[0].title;
-    console.log(Data);
+    const data = await Response.json();
+    console.log(data);
     try {
       if (Response.status > 199 || Response.status < 300) {
-        DOM.DisplayPage.insertAdjacentHTML(
-          "beforeend",
-          `
+        data.data.forEach((element) => {
+          DOM.DisplayPage.insertAdjacentHTML(
+            "beforeend",
+            `
         <div class="child">
-        <h1 class="title">${Title}</h1>
-        <img class="img" src="${Link}"><img>
-        <h1 class="genre">Genre: ${Genre}</h1>
-        <h1 class="rating">Rating: ${Data2[0].score}</h1>
+        <h1 class="title">${element.title}</h1>
+        <img class="img" src="${element.images.jpg.large_image_url}"><img>
+        <h2 class="genre">Genre: ${element.genres[0].name}</h2>
+        <h1 class="rating">Rating: ${element.score}</h1>
         </div>
         `
-        );
-      } else {
-        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
+          );
+        });
       }
-    } catch (error) {
-      DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
-    }
+    } catch (error) {}
   },
 };
 
@@ -113,7 +107,7 @@ const api3 = fetch(
         "beforeend",
         `
     <div class="child">
-    <h1 class="test">${element.title}</h1>
+    <h1 class="title">${element.title}</h1>
     <img class="img" src="${element.images.jpg.large_image_url}"><img>
     <h2 class="genre">Genre: ${element.genres[0].name}</h2>
     <h1 class="rating">Rating: ${element.score}</h1>
@@ -122,3 +116,7 @@ const api3 = fetch(
       );
     })
   );
+
+DOM.delete.addEventListener("click", function () {
+  DOM.DisplayPage.innerHTML = "";
+});

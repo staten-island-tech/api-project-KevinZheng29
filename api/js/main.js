@@ -76,8 +76,9 @@ const functionlist = {
     const Data = await Response.json();
     const Data2 = Data.data;
     const Link = Data2[0].images.jpg.large_image_url;
-    const Synopsis = Data.data[0].synopsis;
+    const Genre = Data.data[0].genres[0].name;
     const Title = Data.data[0].title;
+    console.log(Data);
     try {
       if (Response.status > 199 || Response.status < 300) {
         DOM.DisplayPage.insertAdjacentHTML(
@@ -86,7 +87,7 @@ const functionlist = {
         <div class="child">
         <h1 class="title">${Title}</h1>
         <img class="img" src="${Link}"><img>
-        <h1 class="synopsis">${Synopsis}</h1>
+        <h1 class="genre">Genre: ${Genre}</h1>
         <h1 class="rating">Rating: ${Data2[0].score}</h1>
         </div>
         `
@@ -102,23 +103,22 @@ const functionlist = {
 
 //////////////////////////////////////////////
 
-const api2 = "https://api.jikan.moe/v4/anime?q=Tokyo Ghoul&sfw";
-async function testing(URL) {
-  const Response = await fetch(URL);
-  const data = await Response.json();
-  console.log(data);
-  data.data.forEach((element) => {
-    console.log(element.title);
-    DOM.DisplayPage.insertAdjacentHTML(
-      "beforeend",
-      `
-    
+const api3 = fetch(
+  "https://api.jikan.moe/v4/anime?q=Bocchi%20The%20Rock&sfw&limit=1"
+)
+  .then((res) => res.json())
+  .then((data) =>
+    data.data.forEach((element) => {
+      DOM.DisplayPage.insertAdjacentHTML(
+        "beforeend",
+        `
     <div class="child">
     <h1 class="test">${element.title}</h1>
     <img class="img" src="${element.images.jpg.large_image_url}"><img>
+    <h2 class="genre">Genre: ${element.genres[0].name}</h2>
+    <h1 class="rating">Rating: ${element.score}</h1>
     </div>
     `
-    );
-  });
-}
-testing(api2);
+      );
+    })
+  );

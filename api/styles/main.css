@@ -28,11 +28,15 @@ html, body, *{
 }
 
 .child{
+    margin-top: 40px;
     text-align: center;
-    width: 65rem;
+    width: 55rem;
     height: 70rem;
-    margin-bottom: 10rem;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding-bottom: 75rem;
 }
+
 
 .title{
     font-size: 4rem;
@@ -41,8 +45,8 @@ html, body, *{
     width: 100%;
     height: 60rem;
 }
-.synopsis{
-    font-size: 20px;
+.genre{
+    font-size: 40px;
 }
 
 .rating{
@@ -53,3 +57,4 @@ html, body, *{
 .test{
     font-size: 50px;
 }
+

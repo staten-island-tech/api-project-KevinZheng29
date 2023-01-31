@@ -62,14 +62,6 @@ const allfunction = {
 import "../styles/main.css";
 import { DOM } from "../js/dom";
 
-const testlink = "https://api.jikan.moe/v4/anime?q=Bocchi The Rock&sfw";
-async function test(URL) {
-  const Response = await fetch(URL);
-  const data = await Response.json();
-  console.log(data);
-}
-test(testlink);
-
 DOM.customBTN.addEventListener("click", function () {
   DOM.DisplayPage.innerHTML = "";
   let input = DOM.userInput.value;
@@ -107,3 +99,26 @@ const functionlist = {
     }
   },
 };
+
+//////////////////////////////////////////////
+
+const api2 = "https://api.jikan.moe/v4/anime?q=Tokyo Ghoul&sfw";
+async function testing(URL) {
+  const Response = await fetch(URL);
+  const data = await Response.json();
+  console.log(data);
+  data.data.forEach((element) => {
+    console.log(element.title);
+    DOM.DisplayPage.insertAdjacentHTML(
+      "beforeend",
+      `
+    
+    <div class="child">
+    <h1 class="test">${element.title}</h1>
+    <img class="img" src="${element.images.jpg.large_image_url}"><img>
+    </div>
+    `
+    );
+  });
+}
+testing(api2);

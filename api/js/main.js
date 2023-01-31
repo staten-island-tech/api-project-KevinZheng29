@@ -70,34 +70,6 @@ async function test(URL) {
 }
 test(testlink);
 
-/*DOM.S1BTN.addEventListener("click", function () {
-  DOM.DisplayPage.innerHTML = "";
-  const URL =
-    "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
-  functionlist.S1(URL);
-});
-
-DOM.S2BTN.addEventListener("click", function () {
-  DOM.DisplayPage.innerHTML = "";
-  const URL =
-    "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
-  functionlist.S2(URL);
-});
-
-DOM.S3BTN.addEventListener("click", function () {
-  DOM.DisplayPage.innerHTML = "";
-  const URL =
-    "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
-  functionlist.S3(URL);
-});
-
-DOM.S4BTN.addEventListener("click", function () {
-  DOM.DisplayPage.innerHTML = "";
-  const URL =
-    "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin: The Final Season&sfw";
-  functionlist.S4(URL);
-});*/
-
 DOM.customBTN.addEventListener("click", function () {
   DOM.DisplayPage.innerHTML = "";
   let input = DOM.userInput.value;
@@ -107,102 +79,6 @@ DOM.customBTN.addEventListener("click", function () {
 });
 
 const functionlist = {
-  /*  S1: async function (URL) {
-    const Response = await fetch(URL);
-    const Data = await Response.json();
-    const Data2 = Data.data;
-    const Link = Data2[9].trailer.embed_url;
-    const Synopsis = Data.data[9].synopsis;
-    const Title = Data.data[9].title;
-    try {
-      if (Response.status > 199 || Response.status < 300) {
-        DOM.DisplayPage.insertAdjacentHTML(
-          "beforeend",
-          `
-        <div class="child">
-        <h1 class="title">${Title}</h1>
-        <embed  class="video" src="${Link}"><embed>
-        <h1 class="synopsis">${Synopsis}</h1>
-        </div>
-        `
-        );
-      } else {
-        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
-      }
-    } catch (error) {}
-  },
-  S2: async function (URL) {
-    const Response = await fetch(URL);
-    const Data = await Response.json();
-    const Data2 = Data.data;
-    const Link = Data2[8].trailer.embed_url;
-    const Synopsis = Data.data[8].synopsis;
-    const Title = Data.data[8].title;
-    try {
-      if (Response.status > 199 || Response.status < 300) {
-        DOM.DisplayPage.insertAdjacentHTML(
-          "beforeend",
-          `
-        <div class="child">
-        <h1 class="title">${Title}</h1>
-        <embed  class="video" src="${Link}"><embed>
-        <h1 class="synopsis">${Synopsis}</h1>
-        </div>
-        `
-        );
-      } else {
-        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
-      }
-    } catch (error) {}
-  },
-  S3: async function (URL) {
-    const Response = await fetch(URL);
-    const Data = await Response.json();
-    const Data2 = Data.data;
-    const Link = Data2[7].trailer.embed_url;
-    const Synopsis = Data.data[7].synopsis;
-    const Title = Data.data[7].title;
-    try {
-      if (Response.status > 199 || Response.status < 300) {
-        DOM.DisplayPage.insertAdjacentHTML(
-          "beforeend",
-          `
-        <div class="child">
-        <h1 class="title">${Title}</h1>
-        <embed  class="video" src="${Link}"><embed>
-        <h1 class="synopsis">${Synopsis}</h1>
-        </div>
-        `
-        );
-      } else {
-        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
-      }
-    } catch (error) {}
-  },
-  S4: async function (URL) {
-    const Response = await fetch(URL);
-    const Data = await Response.json();
-    const Data2 = Data.data;
-    const Link = Data2[0].trailer.embed_url;
-    const Synopsis = Data.data[0].synopsis;
-    const Title = Data.data[0].title;
-    try {
-      if (Response.status > 199 || Response.status < 300) {
-        DOM.DisplayPage.insertAdjacentHTML(
-          "beforeend",
-          `
-        <div class="child">
-        <h1 class="title">${Title}</h1>
-        <embed  class="video" src="${Link}"><embed>
-        <h1 class="synopsis">${Synopsis}</h1>
-        </div>
-        `
-        );
-      } else {
-        DOM.DisplayPage.insertAdjacentHTML("beforeend", `<h1>Error</h1>`);
-      }
-    } catch (error) {}
-  },*/
   Custom: async function (URL) {
     const Response = await fetch(URL);
     const Data = await Response.json();
@@ -231,21 +107,3 @@ const functionlist = {
     }
   },
 };
-
-/*const API = "https://api.jikan.moe/v4/anime?q=Shingeki no Kyojin&sfw";
-async function getData(URL) {
-  const Response = await fetch(URL);
-  const Data = await Response.json();
-  console.log(Data);
-  const Data2 = Data.data;
-  const link = Data2[0].trailer.embed_url;
-  DOM.DisplayPage.insertAdjacentHTML(
-    "beforeend",
-    `
-  <div>
-  <embed style="width:1080px; height:720px;" src="${link}"><embed>
-  </div>
-  `
-  );
-}
-getData(API);*/
